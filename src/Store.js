@@ -1,5 +1,5 @@
 import { createContext, useReducer } from 'react';
-
+import { useReducer } from 'react';
 // Create a context to share global state
 export const Store = createContext();
 
@@ -99,7 +99,7 @@ function reducer(state, action) {
 
 // StoreProvider to wrap around the app and provide state/dispatch
 export function StoreProvider(props) {
-  const [state, dispatch] = useReducer(logger(reducer), initialState);
+ const [state, dispatch] = useReducer(reducer, initialState);
   const value = { state, dispatch };
   return <Store.Provider value={value}>{props.children}</Store.Provider>;
 }
